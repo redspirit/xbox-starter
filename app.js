@@ -13,7 +13,7 @@ app.use(express.static('www', {
     index: 'index.html'
 }));
 
-app.post('/start', function (req, res) {
+app.post('//start', function (req, res) {
 
     let liveId = req.body.liveId;
     let localIp = req.body.localIp;
