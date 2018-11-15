@@ -19,7 +19,7 @@ $(function () {
         localStorage.setItem('localIp', localIp);
 
         jQuery.ajax ({
-            url: '/start',
+            url: 'start',
             type: "POST",
             data: JSON.stringify({
                 liveId: liveId,
