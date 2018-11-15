@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>XBOX Starter</title>
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-    empty page
+
+<div class="bootstrap-iso">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form method="post">
+                    <div class="form-group ">
+                        <label class="control-label requiredField">
+                            Live Device ID
+                            <span class="asteriskField">*</span>
+                        </label>
+                        <input class="form-control" id="liveId" type="text"/>
+                        <span class="help-block" id="hint_liveId">
+       On your Xbox, go to Settings &gt; System &gt; Console info &amp; updates and look under "Xbox Live device ID"
+      </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label requiredField" >
+                            Local Xbox IP
+                            <span class="asteriskField">*</span>
+                        </label>
+                        <input class="form-control" id="localIp" placeholder="192.168.1.10" type="text"/>
+                        <span class="help-block" id="hint_text">
+       On your Xbox, go to Settings &gt; Network &gt; Network Settings &gt; Advanced Settings
+      </span>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button class="btn btn-primary" type="button" id="turn-button">
+                                Turn ON
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>

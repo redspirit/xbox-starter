@@ -12,26 +12,34 @@ app.use(express.static('www', {
     index: 'index.html'
 }));
 
-app.put('/start', function (req, res) {
+app.post('/start', function (req, res) {
 
     let liveId = req.body.liveId;
+    let localIp = req.body.localIp;
+
     if(!liveId)
         return res.send({ok:false, error: 'no live device id'});
+    if(!localIp)
+        return res.send({ok:false, error: 'no local ip'});
 
-    let xbox = new Xbox(config.xbox_ip, liveDeviceId);
+    let xbox = new Xbox(localIp, liveId);
 
     let options = {
-        tries: 3,
+        tries: 5,
         delay: 1000,
-        waitForCallback: false
+        waitForCallback: true
     };
 
-    xbox.powerOn(options);
-
-    res.send({ok: true});
+    xbox.powerOn(options, function (err, result) {
+        console.log(err, result);
+        if(err) {
+            res.send({ok: false, error: err});
+        } else {
+            res.send({ok: true});
+        }
+    });
 
 });
-
 
 
 app.listen(config.http_port, function () {
